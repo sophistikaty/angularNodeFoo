@@ -2,17 +2,26 @@
 <html>
   <head>
      <link href='https://fonts.googleapis.com/css?family=Roboto:500,300,700,400' rel='stylesheet' type='text/css'>
-
+     <link href='style.css' rel='stylesheet' type='text/css'>
+     
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
 
   </head>
   <body ng-app="kaitlynn" >
+
+    <h2>Signup Database Connection</h2>
+    <input class="signup-username" />
+    <input type="password" class="signup-password" />
+    <input type="button" class="signup-db" value="Signup!" />
 
     <directions ng-controller="fun"></directions>
 
     <hr>
 
     <directions ng-controller="soFun"></directions>
+
+    <!-- Vendor -->
+    <script src="https://cdn.auth0.com/w2/auth0-7.4.min.js"></script>
 
     <!-- Modules -->
     <script src="app.js"></script>
