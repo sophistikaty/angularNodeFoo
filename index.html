@@ -7,32 +7,47 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
 
   </head>
-  <body ng-app="authentiKaited" >
+  <body ng-app="authentiKaited">
 
-    <h2>Signup Database Connection</h2>
-    <input class="signup-username" placeholder='username'/>
-    <input type="password" class="signup-password" placeholder='password'/>
-    <input type="button" class="signup-db" value="Signup!" />
+    <div ng-controller="authKCtrl as ctrl">
 
-    <hr>
+      {{ ctrl.check }}
 
-    <directions ng-controller="fun"></directions>
+      <div ng-if="( !ctrl.isAuth )">
 
-    <hr>
+        <h2>Signup Database Connection</h2>
+        <input class="signup-username" placeholder='username'/>
+        <input type="password" class="signup-password" placeholder='password'/>
+        <input type="button" class="signup-db" value="Signup!" />
 
-    <directions ng-controller="soFun"></directions>
+        <hr>
+
+      </div>
+
+      <div ng-if="( ctrl.isAuth )">
+
+         {{ ctrl.check }}
+
+        <directions ng-controller="fun as ctrl"></directions>
+        <hr>
+        <directions ng-controller="soFun as ctrl"></directions>
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
+
 
     <!-- Vendor -->
-    <script src="https://cdn.auth0.com/w2/auth0-7.4.min.js"></script>
+   <script src="https://cdn.auth0.com/w2/auth0-7.4.min.js"></script>
 
-    <!-- Modules -->
+    <!-- Modules -->   
     <script src="app.js"></script>
 
     <!-- Controllers -->
     <script src="controller.js"></script>
 
     <!-- Directives -->
-    <script src="directive.js"></script>
-
-  </body>
-</html>
+     <script src="directive.js"></script>

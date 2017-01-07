@@ -1,7 +1,18 @@
 
-const authK = angular.module("authentiKaited", []);
+// App
+var authK = angular.module( "authentiKaited",[])
 
-const authKInterceptor = function( $q ){
+// Config 
+authK.config(function($httpProvider){
+
+	$httpProvider.interceptors.push( authKInterceptor );
+})
+
+// Factories
+
+authK.factory('authKInterceptor', authKInterceptor)
+
+var authKInterceptor = function( $q ){
 
 	return {
     // optional method
@@ -19,9 +30,6 @@ const authKInterceptor = function( $q ){
       }
       return $q.reject( rejection );
     },
-
-
-
     // optional method
     'response': function( response ) {
       // do something on success
@@ -32,17 +40,10 @@ const authKInterceptor = function( $q ){
    'responseError': function( rejection ) {
       // do something on error
       if ( canRecover( rejection )) {
-      	
+
         return responseOrNewPromise
       }
       return $q.reject( rejection );
     }
   }
 }
-
-authK.factory('authKInterceptor', authKInterceptor)
-
-authK.config(function($httpProvider){
-
-	$httpProvider.interceptors.push( authKInterceptor );
-})
