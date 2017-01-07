@@ -4,3 +4,11 @@ body {
 	font-family: Roboto;
 	font-weight: 100;
 }
+
+input, button {
+
+	line-height: 3;
+    width: 50%;
+    padding: 0 10%;
+    margin: 3px 15%;
+}

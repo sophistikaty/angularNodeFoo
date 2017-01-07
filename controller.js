@@ -1,5 +1,4 @@
-
-app.controller( 'fun', ['$scope', function($scope) {
+var fun = function( $scope ) {
 
   $scope.night = {
     food: "tacos",
@@ -7,16 +6,16 @@ app.controller( 'fun', ['$scope', function($scope) {
 
   };
 
-  var auth0 = new Auth0({
+  const auth0 = new Auth0({
     domain:       'YOUR_AUTH0_DOMAIN',
     clientID:     'YOUR_CLIENT_ID',
     callbackURL:  '{YOUR APP URL}',
     responseType: 'token'
   });
 
-}]);
+};
 
-app.controller( 'soFun', ['$scope', function($scope) {
+var soFun = function($scope) {
 
   $scope.night = {
     food: "wings",
@@ -24,4 +23,7 @@ app.controller( 'soFun', ['$scope', function($scope) {
 
   };
 
-}]);
+};
+
+authK.controller( 'fun', ['$scope', fun ]);
+authK.controller( 'soFun', ['$scope', soFun ]);
